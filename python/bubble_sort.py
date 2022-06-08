@@ -3,11 +3,13 @@ def bubble_sort(sequence):
     swaps = 0
     for i in range(len(sequence)):
         for j in range(0, len(sequence) - i - 1):
-            if sequence[j] > sequence[j + 1]:
-                temp = sequence[j]
-                sequence[j] = sequence[j + 1]
-                sequence[j + 1] = temp
-                swaps += 1
+            curr = sequence[j] #setting variables to keep track of curr and next
+            next_num = sequence[j + 1]
+            if curr > next_num: #if curr is greater than next num, will need to swap
+                temp = curr #keeping track of curr num
+                curr = next_num #set curr = to next
+                next_num = temp #next num = the temp (which was the curr)
+                swaps += 1 #add each swap to swaps count
                 
     print(f"Swaps: {swaps}")        
     return(sequence)    
